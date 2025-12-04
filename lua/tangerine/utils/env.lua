@@ -20,7 +20,7 @@ local function resolve(path)
   end
 end
 local function rtpdirs(dirs)
-  _G.assert((nil ~= dirs), "Missing argument dirs on fnl/tangerine/utils/env.fnl:24")
+  _G.assert((nil ~= dirs), "Missing argument dirs on fnl/tangerine/utils/env.fnl:25")
   local tbl_15_auto = {}
   local i_16_auto = #tbl_15_auto
   for _, dir in ipairs(dirs) do
@@ -42,21 +42,21 @@ local function rtpdirs(dirs)
   return tbl_15_auto
 end
 local function get_type(x)
-  _G.assert((nil ~= x), "Missing argument x on fnl/tangerine/utils/env.fnl:32")
-  if vim.tbl_islist(x) then
+  _G.assert((nil ~= x), "Missing argument x on fnl/tangerine/utils/env.fnl:34")
+  if vim.islist(x) then
     return "list"
   else
     return type(x)
   end
 end
 local function table_3f(tbl, scm)
-  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:38")
-  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:38")
-  return (("table" == type(tbl)) and not vim.tbl_islist(scm))
+  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:41")
+  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:41")
+  return (("table" == type(tbl)) and not vim.islist(scm))
 end
 local function deepcopy(tbl1, tbl2)
-  _G.assert((nil ~= tbl2), "Missing argument tbl2 on fnl/tangerine/utils/env.fnl:43")
-  _G.assert((nil ~= tbl1), "Missing argument tbl1 on fnl/tangerine/utils/env.fnl:43")
+  _G.assert((nil ~= tbl2), "Missing argument tbl2 on fnl/tangerine/utils/env.fnl:45")
+  _G.assert((nil ~= tbl1), "Missing argument tbl1 on fnl/tangerine/utils/env.fnl:45")
   for key, val in pairs(tbl1) do
     if table_3f(val, (tbl2)[key]) then
       deepcopy(val, (tbl2)[key])
@@ -97,14 +97,14 @@ local function _11_(_241)
 end
 ENV = {vimrc = resolve((config_dir .. "/init.fnl")), source = resolve((config_dir .. "/fnl/")), target = resolve((config_dir .. "/lua/")), rtpdirs = {}, custom = {}, compiler = {float = true, clean = true, force = false, verbose = true, version = "latest", adviser = _11_, globals = vim.tbl_keys(_G), hooks = {}}, eval = {float = true, luafmt = luafmt, diagnostic = {virtual = true, timeout = 10}}, keymaps = {eval_buffer = "gE", peek_buffer = "gL", goto_output = "gO", float = {next = "<C-K>", prev = "<C-J>", kill = "<Esc>", close = "<Enter>", resizef = "<C-W>=", resizeb = "<C-W>-"}}, highlight = {float = "Normal", success = "String", errors = "DiagnosticError"}}
 local function validate_err(key, msg, ...)
-  _G.assert((nil ~= msg), "Missing argument msg on fnl/tangerine/utils/env.fnl:184")
-  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:184")
+  _G.assert((nil ~= msg), "Missing argument msg on fnl/tangerine/utils/env.fnl:151")
+  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:151")
   return error(("[tangerine]: bad argument to 'setup()' in key " .. key .. ": " .. table.concat({msg, ...}, " ") .. "."))
 end
 local function validate_type(key, val, scm)
-  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:190")
-  _G.assert((nil ~= val), "Missing argument val on fnl/tangerine/utils/env.fnl:190")
-  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:190")
+  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:156")
+  _G.assert((nil ~= val), "Missing argument val on fnl/tangerine/utils/env.fnl:156")
+  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:156")
   local tv = get_type(val)
   if (scm ~= tv) then
     return validate_err(key, scm, "expected got", tv)
@@ -113,9 +113,9 @@ local function validate_type(key, val, scm)
   end
 end
 local function validate_oneof(key, val, scm)
-  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:197")
-  _G.assert((nil ~= val), "Missing argument val on fnl/tangerine/utils/env.fnl:197")
-  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:197")
+  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:162")
+  _G.assert((nil ~= val), "Missing argument val on fnl/tangerine/utils/env.fnl:162")
+  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:162")
   if not vim.tbl_contains(scm, val) then
     return validate_err(key, "value expected to be one of", vim.inspect(scm), "got", vim.inspect(val))
   else
@@ -123,9 +123,9 @@ local function validate_oneof(key, val, scm)
   end
 end
 local function validate_array(key, array, scm)
-  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:203")
-  _G.assert((nil ~= array), "Missing argument array on fnl/tangerine/utils/env.fnl:203")
-  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:203")
+  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:168")
+  _G.assert((nil ~= array), "Missing argument array on fnl/tangerine/utils/env.fnl:168")
+  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:168")
   validate_type(key, array, "list")
   for _, val in ipairs(array) do
     validate_oneof(key, val, scm)
@@ -133,9 +133,9 @@ local function validate_array(key, array, scm)
   return nil
 end
 local function validate_list(key, list, scm)
-  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:210")
-  _G.assert((nil ~= list), "Missing argument list on fnl/tangerine/utils/env.fnl:210")
-  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:210")
+  _G.assert((nil ~= scm), "Missing argument scm on fnl/tangerine/utils/env.fnl:174")
+  _G.assert((nil ~= list), "Missing argument list on fnl/tangerine/utils/env.fnl:174")
+  _G.assert((nil ~= key), "Missing argument key on fnl/tangerine/utils/env.fnl:174")
   validate_type(key, list, "list")
   for _, val in ipairs(list) do
     if ("list" == get_type(scm)) then
@@ -151,8 +151,8 @@ local function validate_list(key, list, scm)
   return nil
 end
 local function validate(tbl, schema0)
-  _G.assert((nil ~= schema0), "Missing argument schema on fnl/tangerine/utils/env.fnl:221")
-  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:221")
+  _G.assert((nil ~= schema0), "Missing argument schema on fnl/tangerine/utils/env.fnl:185")
+  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:185")
   for key, val in pairs(tbl) do
     local scm = (schema0)[key]
     if not scm then
@@ -177,8 +177,8 @@ local function validate(tbl, schema0)
   return nil
 end
 local function pre_process(tbl, schema0)
-  _G.assert((nil ~= schema0), "Missing argument schema on fnl/tangerine/utils/env.fnl:235")
-  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:235")
+  _G.assert((nil ~= schema0), "Missing argument schema on fnl/tangerine/utils/env.fnl:198")
+  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:198")
   for key, val in pairs(tbl) do
     local pre = (schema0)[key]
     local _19_ = type(pre)
@@ -200,8 +200,8 @@ local function env_get(...)
   return cur
 end
 local function env_get_conf(opts, keys)
-  _G.assert((nil ~= keys), "Missing argument keys on fnl/tangerine/utils/env.fnl:256")
-  _G.assert((nil ~= opts), "Missing argument opts on fnl/tangerine/utils/env.fnl:256")
+  _G.assert((nil ~= keys), "Missing argument keys on fnl/tangerine/utils/env.fnl:220")
+  _G.assert((nil ~= opts), "Missing argument opts on fnl/tangerine/utils/env.fnl:220")
   local last = keys[#keys]
   if (nil ~= opts[last]) then
     return pre_process(opts, pre_schema)[last]
@@ -210,7 +210,7 @@ local function env_get_conf(opts, keys)
   end
 end
 local function env_set(tbl)
-  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:267")
+  _G.assert((nil ~= tbl), "Missing argument tbl on fnl/tangerine/utils/env.fnl:230")
   validate(tbl, schema)
   return deepcopy(pre_process(tbl, pre_schema), ENV)
 end

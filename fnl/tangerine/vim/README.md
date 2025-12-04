@@ -8,7 +8,8 @@ _G.tangerine.api
 
 **EXPORTS**
 ```fennel
-:cmds [true]
+:cmdsvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return [true]
 ```
 
 # hooks.fnl
@@ -22,7 +23,8 @@ utils[env]
 
 **EXPORTS**
 ```fennel
-:hooks {
+:hooksvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:oninit (function 1)
 	:onload (function 2)
 	:onsave (function 3)
@@ -41,6 +43,7 @@ vim[cmds]
 
 **EXPORTS**
 ```fennel
-:maps [true]
+:mapsvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return [true]
 ```
 

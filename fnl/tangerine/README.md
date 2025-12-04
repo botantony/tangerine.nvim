@@ -9,7 +9,8 @@ utils[env]
 
 **EXPORTS**
 ```fennel
-:fennel {
+:fennelvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:load       (function 1)
 	:patch-path (function 2)
 }

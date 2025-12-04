@@ -12,7 +12,8 @@ utils[path]
 
 **EXPORTS**
 ```fennel
-:clean {
+:cleanvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:orphaned (function 1)
 	:rtp      (function 2)
 	:target   (function 3)
@@ -35,7 +36,8 @@ utils[path]
 
 **EXPORTS**
 ```fennel
-:compile {
+:compilevim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:all    (function 1)
 	:buffer (function 2)
 	:custom (function 3)
@@ -61,7 +63,8 @@ utils[path]
 
 **EXPORTS**
 ```fennel
-:eval {
+:evalvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:buffer (function 1)
 	:file   (function 2)
 	:peek   (function 3)

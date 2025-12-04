@@ -10,7 +10,8 @@ utils[window]
 
 **EXPORTS**
 ```fennel
-:display {
+:displayvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:show     (function 1)
 	:show-lua (function 2)
 }
@@ -27,7 +28,8 @@ utils[window]
 
 **EXPORTS**
 ```fennel
-:error {
+:errorvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:clear    (function 1)
 	:compile? (function 2)
 	:float    (function 3)
@@ -49,7 +51,8 @@ utils[window]
 
 **EXPORTS**
 ```fennel
-:logger {
+:loggervim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:failure       (function 1)
 	:float-failure (function 2)
 	:float-success (function 3)

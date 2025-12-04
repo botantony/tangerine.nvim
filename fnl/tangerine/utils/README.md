@@ -6,7 +6,8 @@ compares UTC in marker to ftime(source).
 
 **EXPORTS**
 ```fennel
-:diff {
+:diffvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:create-marker (function 1)
 	:read-marker   (function 2)
 	:stale?        (function 3)
@@ -20,7 +21,8 @@ Provides getter and setter so that multiple modules can have shared configuratio
 
 **EXPORTS**
 ```fennel
-:env {
+:envvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:conf (function 1)
 	:get  (function 2)
 	:set  (function 3)
@@ -32,7 +34,8 @@ Provides getter and setter so that multiple modules can have shared configuratio
 
 **EXPORTS**
 ```fennel
-:fs {
+:fsvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:read      (function 1)
 	:readable? (function 2)
 	:remove    (function 3)
@@ -50,7 +53,8 @@ utils[env]
 
 **EXPORTS**
 ```fennel
-:path {
+:pathvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:goto-output    (function 1)
 	:gsub           (function 2)
 	:match          (function 3)
@@ -68,7 +72,8 @@ utils[env]
 
 **EXPORTS**
 ```fennel
-:serialize (function 1)
+:serializevim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return (function 1)
 ```
 
 # window.fnl
@@ -81,7 +86,8 @@ utils[env]
 
 **EXPORTS**
 ```fennel
-:window {
+:windowvim.tbl_islist is deprecated. Run ":checkhealth vim.deprecated" for 
+:return {
 	:close        (function 1)
 	:create-float (function 2)
 	:killall      (function 3)
